@@ -1,7 +1,13 @@
 {
   // ===== THEME & ICONS =====
+  "workbench.colorTheme": "Darcula",
+  // if you install Dracula instead, use:
   // "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
+
+  // ===== GLOBAL UI HACKER VIBES =====
+  "window.commandCenter": true,              // command bar at the top
+  "workbench.layoutControl.enabled": true,   // layout control in the title bar
 
   // ===== EDITOR FONT – CRISP & MODERN =====
   "editor.fontFamily": "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace",
@@ -13,22 +19,27 @@
   // ===== EDITOR LOOK & FEEL =====
   "editor.minimap.enabled": false,
   "editor.smoothScrolling": true,
-  "editor.cursorBlinking": "smooth",
+  "editor.cursorBlinking": "phase",          // smoother, more “alive”
   "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "line",
+  "editor.cursorWidth": 2,                   // thicc cursor = hacker
   "editor.roundedSelection": true,
   "editor.renderWhitespace": "selection",
   "editor.renderControlCharacters": false,
   "editor.scrollBeyondLastLine": true,
+  "editor.detectIndentation": false,         // always respect your tabSize
 
   // Slightly dim inactive code blocks – looks slick
   "editor.inlayHints.enabled": "off",
   "editor.foldingHighlight": true,
-  "editor.occurrencesHighlight": true,
+  "editor.occurrencesHighlight": "singleFile",
   "editor.selectionHighlight": true,
 
   // Brackets & guides
   "editor.guides.indentation": true,
   "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": "active",
+  "editor.guides.highlightActiveBracketPair": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.rulers": [100, 140],
 
@@ -36,13 +47,21 @@
   "explorer.compactFolders": false,      // full depth like IntelliJ
   "explorer.autoReveal": false,          // no random jumps
   "workbench.sideBar.location": "left",
-  "workbench.activityBar.visible": true,
   "workbench.tree.indent": 14,
   "explorer.decorations.colors": true,
   "explorer.decorations.badges": true,
+  "explorer.sortOrder": "type",
+
+  // Angular-aware nesting: makes the tree look *smart*
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.component.ts": "${capture}.component.html, ${capture}.component.scss, ${capture}.component.css, ${capture}.component.spec.ts",
+    "*.module.ts": "${capture}.routing.module.ts",
+    "*.service.ts": "${capture}.spec.ts"
+  },
 
   // ===== TABS & LAYOUT =====
-  "workbench.editor.showTabs": true,
+  "workbench.editor.showTabs": "multiple",
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.enablePreview": true,
@@ -50,10 +69,14 @@
   "breadcrumbs.enabled": true,
   "workbench.statusBar.visible": true,
   "workbench.startupEditor": "none",
-
-  // Dim inactive editor – gives nice focus
   "workbench.editor.enablePreviewFromQuickOpen": true,
   "workbench.editor.focusRecentEditorAfterClose": true,
+  "workbench.editor.centeredLayoutAutoResize": true,
+
+  // ===== ZEN / FOCUS MODE =====
+  "zenMode.fullScreen": false,
+  "zenMode.centerLayout": true,
+  "zenMode.hideStatusBar": false,
 
   // ===== TERMINAL =====
   "terminal.integrated.fontFamily": "JetBrains Mono",
@@ -67,7 +90,7 @@
   "editor.formatOnSave": false,
   "editor.wordWrap": "off",
 
-  // ===== TS / HTML – CONSISTENT INDENT =====
+  // ===== ANGULAR / TS / HTML – CONSISTENT INDENT =====
   "[typescript]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true
@@ -88,6 +111,12 @@
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
+
+  // ===== INLINE ERROR “GLOW” (needs Error Lens extension) =====
+  "errorLens.enabled": true,
+  "errorLens.fontWeight": "500",
+  "errorLens.statusBarIconEnabled": false,
+  "errorLens.margin": "80px",
 
   // ===== CUSTOM CODE COLORS (make it pop a bit) =====
   "editor.tokenColorCustomizations": {
