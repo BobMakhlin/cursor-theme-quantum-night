@@ -1,0 +1,133 @@
+{
+  // ===== THEME & ICONS =====
+  // "workbench.colorTheme": "Dracula",
+  "workbench.iconTheme": "material-icon-theme",
+
+  // ===== EDITOR FONT – CRISP & MODERN =====
+  "editor.fontFamily": "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 12,
+  "editor.lineHeight": 21,
+  "editor.fontLigatures": true,
+  "editor.fontWeight": "600",
+
+  // ===== EDITOR LOOK & FEEL =====
+  "editor.minimap.enabled": false,
+  "editor.smoothScrolling": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.roundedSelection": true,
+  "editor.renderWhitespace": "selection",
+  "editor.renderControlCharacters": false,
+  "editor.scrollBeyondLastLine": true,
+
+  // Slightly dim inactive code blocks – looks slick
+  "editor.inlayHints.enabled": "off",
+  "editor.foldingHighlight": true,
+  "editor.occurrencesHighlight": true,
+  "editor.selectionHighlight": true,
+
+  // Brackets & guides
+  "editor.guides.indentation": true,
+  "editor.guides.bracketPairs": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.rulers": [100, 140],
+
+  // ===== EXPLORER / PROJECT VIEW =====
+  "explorer.compactFolders": false,      // full depth like IntelliJ
+  "explorer.autoReveal": false,          // no random jumps
+  "workbench.sideBar.location": "left",
+  "workbench.activityBar.visible": true,
+  "workbench.tree.indent": 14,
+  "explorer.decorations.colors": true,
+  "explorer.decorations.badges": true,
+
+  // ===== TABS & LAYOUT =====
+  "workbench.editor.showTabs": true,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.labelFormat": "short",
+  "breadcrumbs.enabled": true,
+  "workbench.statusBar.visible": true,
+  "workbench.startupEditor": "none",
+
+  // Dim inactive editor – gives nice focus
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.editor.focusRecentEditorAfterClose": true,
+
+  // ===== TERMINAL =====
+  "terminal.integrated.fontFamily": "JetBrains Mono",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.lineHeight": 1.1,
+  "terminal.integrated.cursorStyle": "block",
+
+  // ===== QUALITY OF LIFE =====
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.formatOnSave": false,
+  "editor.wordWrap": "off",
+
+  // ===== TS / HTML – CONSISTENT INDENT =====
+  "[typescript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[typescriptreact]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[scss]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
+  // ===== CUSTOM CODE COLORS (make it pop a bit) =====
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": ["keyword", "storage.type"],
+        "settings": {
+          "foreground": "#ff9e64"   // warm keywords
+        }
+      },
+      {
+        "scope": ["variable", "entity.name.variable"],
+        "settings": {
+          "foreground": "#c3e88d"   // variables slightly greenish
+        }
+      },
+      {
+        "scope": ["string", "constant.other.symbol"],
+        "settings": {
+          "foreground": "#ffd166"   // soft amber strings
+        }
+      },
+      {
+        "scope": ["entity.name.function", "support.function"],
+        "settings": {
+          "foreground": "#82aaff"   // functions → clean blue
+        }
+      },
+      {
+        "scope": ["entity.name.type.class", "support.class"],
+        "settings": {
+          "foreground": "#f7768e"   // classes/types → red/pink accent
+        }
+      },
+      {
+        "scope": ["entity.name.tag", "meta.tag", "support.type.property-name.html"],
+        "settings": {
+          "foreground": "#4fd6be"   // Angular HTML tags → teal
+        }
+      }
+    ]
+  }
+}
