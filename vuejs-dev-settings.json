@@ -366,7 +366,7 @@
 
   // ===== VUE / NUXT HACKER UI TWEAKS (TOP BAR, TABS, CURSOR) =====
   "workbench.colorCustomizations": {
-    "[Darcula]": {   // classic VS Code blue-ish selection
+    "[Darcula]": {
       // Activity bar
       "activityBar.background": "#050814",
       "activityBar.foreground": "#e5e7eb",
@@ -406,10 +406,5 @@
       "editorGutter.modifiedBackground": "#22c55e",
       "editorGutter.deletedBackground": "#ef4444"
     }
-  },
-  "redhat.telemetry.enabled": true,
-  "git.openRepositoryInParentFolders": "always",
-  "editor.codeActionsOnSave": {
-
   }
 }
