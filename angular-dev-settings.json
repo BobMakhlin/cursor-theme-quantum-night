@@ -6,8 +6,8 @@
   "workbench.iconTheme": "material-icon-theme",
 
   // ===== GLOBAL UI HACKER VIBES =====
-  "window.commandCenter": true,              // command bar at the top
-  "workbench.layoutControl.enabled": true,   // layout control in the title bar
+  "window.commandCenter": true, // command bar at the top
+  "workbench.layoutControl.enabled": true, // layout control in the title bar
 
   // ===== EDITOR FONT – CRISP & MODERN =====
   "editor.fontFamily": "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace",
@@ -19,15 +19,15 @@
   // ===== EDITOR LOOK & FEEL =====
   "editor.minimap.enabled": false,
   "editor.smoothScrolling": true,
-  "editor.cursorBlinking": "phase",          // smoother, more “alive”
+  "editor.cursorBlinking": "phase", // smoother, more “alive”
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorStyle": "line",
-  "editor.cursorWidth": 2,                   // thicc cursor = hacker
+  "editor.cursorWidth": 2, // thicc cursor = hacker
   "editor.roundedSelection": true,
   "editor.renderWhitespace": "selection",
   "editor.renderControlCharacters": false,
   "editor.scrollBeyondLastLine": true,
-  "editor.detectIndentation": false,         // always respect your tabSize
+  "editor.detectIndentation": false, // always respect your tabSize
 
   // Slightly dim inactive code blocks – looks slick
   "editor.inlayHints.enabled": "off",
@@ -44,8 +44,8 @@
   "editor.rulers": [100, 140],
 
   // ===== EXPLORER / PROJECT VIEW =====
-  "explorer.compactFolders": false,      // full depth like IntelliJ
-  "explorer.autoReveal": false,          // no random jumps
+  "explorer.compactFolders": false, // full depth like IntelliJ
+  "explorer.autoReveal": false, // no random jumps
   "workbench.sideBar.location": "left",
   "workbench.tree.indent": 14,
   "explorer.decorations.colors": true,
@@ -118,45 +118,144 @@
   "errorLens.statusBarIconEnabled": false,
   "errorLens.margin": "80px",
 
-  // ===== CUSTOM CODE COLORS (make it pop a bit) =====
+  // ===== ANGULAR-BRANDED EDITOR COLORS =====
+  "workbench.colorCustomizations": {
+    // Angular-ish bracket highlights
+    "editorBracketHighlight.foreground1": "#dd0031", // Angular red
+    "editorBracketHighlight.foreground2": "#1976d2", // Material blue
+    "editorBracketHighlight.foreground3": "#ffb300", // Material amber
+    "editorBracketHighlight.foreground4": "#00bfa5", // teal accent
+
+    // Slight accent on active line & selection without burning eyes
+    "editor.lineHighlightBackground": "#ffffff08",
+    "editor.selectionBackground": "#dd003122", // subtle Angular red tint
+    "editor.inactiveSelectionBackground": "#dd00310f"
+  },
+
+  // ===== CUSTOM CODE COLORS – ANGULAR FLAVOR =====
   "editor.tokenColorCustomizations": {
     "textMateRules": [
+      // --- TypeScript / general code ---
       {
         "scope": ["keyword", "storage.type"],
         "settings": {
-          "foreground": "#ff9e64"   // warm keywords
+          "foreground": "#ff9e64" // warm TS keywords (if, const, class...)
         }
       },
       {
         "scope": ["variable", "entity.name.variable"],
         "settings": {
-          "foreground": "#c3e88d"   // variables slightly greenish
+          "foreground": "#c3e88d" // variables slightly greenish
         }
       },
       {
         "scope": ["string", "constant.other.symbol"],
         "settings": {
-          "foreground": "#ffd166"   // soft amber strings
+          "foreground": "#ffd166" // soft amber strings
         }
       },
       {
-        "scope": ["entity.name.function", "support.function"],
+        "scope": [
+          "entity.name.function",
+          "support.function",
+          "meta.function-call.ts"
+        ],
         "settings": {
-          "foreground": "#82aaff"   // functions → clean blue
+          "foreground": "#82aaff" // functions → clean TypeScript-ish blue
         }
       },
       {
-        "scope": ["entity.name.type.class", "support.class"],
+        "scope": [
+          "entity.name.type.class",
+          "support.class",
+          "entity.name.type.interface.ts",
+          "support.type.primitive.ts"
+        ],
         "settings": {
-          "foreground": "#f7768e"   // classes/types → red/pink accent
+          "foreground": "#f78c6c" // classes/interfaces → warm orange
         }
       },
+
+      // --- Decorators (@Component, @Injectable, @Input...) ---
       {
-        "scope": ["entity.name.tag", "meta.tag", "support.type.property-name.html"],
+        "scope": [
+          "meta.decorator.ts",
+          "entity.name.function.decorator.ts",
+          "punctuation.decorator.ts"
+        ],
         "settings": {
-          "foreground": "#4fd6be"   // Angular HTML tags → teal
+          "foreground": "#ff5370", // decorators → pink/red accent
+          "fontStyle": "bold"
+        }
+      },
+
+      // --- Angular templates: tags (HTML + Angular structural) ---
+      {
+        "scope": [
+          "entity.name.tag",
+          "entity.name.tag.html",
+          "meta.tag.structure.any.html",
+          "meta.tag.structure.angular.html",
+          "support.type.property-name.html"
+        ],
+        "settings": {
+          // Softer, more pastel red/pink – much easier on the eyes
+          "foreground": "#f07178"
+        }
+      },
+
+      // --- Angular bindings: [input], (output), [(ngModel)], *ngIf, directives ---
+      {
+        "scope": [
+          "entity.other.attribute-name.html",
+          "entity.other.attribute-name.angular.html",
+          "meta.directive.angular.html",
+          "meta.attribute.angular.html"
+        ],
+        "settings": {
+          "foreground": "#ffb300" // bindings/directives → golden
+        }
+      },
+
+      // Highlight *ngIf / *ngFor names slightly differently
+      {
+        "scope": [
+          "entity.other.attribute-name.directive.angular.html",
+          "entity.other.attribute-name.angular.conditional.html"
+        ],
+        "settings": {
+          "foreground": "#00bfa5", // teal for structural directives
+          "fontStyle": "italic"
+        }
+      },
+
+      // Interpolation {{ value }}
+      {
+        "scope": [
+          "meta.interpolation.angular.html",
+          "punctuation.definition.interpolation.begin.html",
+          "punctuation.definition.interpolation.end.html"
+        ],
+        "settings": {
+          "foreground": "#82aaff" // same blue as functions/TS logic
+        }
+      },
+
+      // Brackets / punctuation a bit calmer
+      {
+        "scope": [
+          "punctuation.definition.tag.begin.html",
+          "punctuation.definition.tag.end.html",
+          "punctuation.section.embedded.begin.ts",
+          "punctuation.section.embedded.end.ts"
+        ],
+        "settings": {
+          "foreground": "#cfd8dc"
         }
       }
     ]
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
