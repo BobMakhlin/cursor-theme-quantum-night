@@ -1,0 +1,389 @@
+{
+  // ==============================
+  // CyberFin (Maven Java)
+  // Blade Runner / cyberpunk trading-terminal mood
+  // Dark, desaturated, low-contrast + clear semantics
+  // ==============================
+
+  // ===== THEME & ICONS =====
+  "workbench.colorTheme": "Darcula",
+  "workbench.iconTheme": "symbols",
+  "workbench.editor.showIcons": false,
+
+  // ===== GLOBAL UI (subtle motion, no neon pain) =====
+  "window.commandCenter": true,
+  "workbench.layoutControl.enabled": true,
+  "workbench.list.smoothScrolling": true,
+
+  // ===== EDITOR FONT =====
+  "editor.fontFamily": "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 12,
+  "editor.lineHeight": 21,
+  "editor.fontLigatures": true,
+  "editor.fontWeight": "600",
+
+  // ===== EDITOR FEEL =====
+  "editor.minimap.enabled": false,
+  "editor.smoothScrolling": true,
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "line",
+  "editor.cursorWidth": 2,
+  "editor.roundedSelection": true,
+  "editor.renderWhitespace": "selection",
+  "editor.renderControlCharacters": false,
+  "editor.scrollBeyondLastLine": true,
+  "editor.detectIndentation": false,
+
+  // Calm focus cues
+  "editor.renderLineHighlight": "all",
+  "editor.lineDecorationsWidth": 2,
+  "editor.foldingHighlight": true,
+  "editor.occurrencesHighlight": "singleFile",
+  "editor.selectionHighlight": true,
+  "editor.inlayHints.enabled": "off",
+
+  // Brackets & guides
+  "editor.guides.indentation": true,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": "active",
+  "editor.guides.highlightActiveBracketPair": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.rulers": [100, 140],
+
+  // ===== EXPLORER =====
+  "explorer.compactFolders": false,
+  "explorer.autoReveal": false,
+  "workbench.sideBar.location": "left",
+  "workbench.tree.indent": 14,
+  "explorer.decorations.colors": true,
+  "explorer.decorations.badges": true,
+  "explorer.sortOrder": "type",
+
+  // ===== MAVEN/Java FILE NESTING =====
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    // Java + common test naming
+    "*.java": "${capture}Test.java, ${capture}Tests.java, ${capture}IT.java, ${capture}IntegrationTest.java",
+
+    // Maven wrapper + related files
+    "pom.xml": "dependency-reduced-pom.xml, mvnw, mvnw.cmd, .mvn/wrapper/maven-wrapper.properties, .mvn/jvm.config, .mvn/extensions.xml, .mvn/maven.config",
+
+    // Java quality tooling (common in Maven repos)
+    ".editorconfig": ".gitattributes, .gitignore",
+    "checkstyle.xml": "checkstyle-suppressions.xml, suppressions.xml",
+    "spotbugs-exclude.xml": "spotbugs.xml",
+    "pmd.xml": "ruleset.xml",
+
+    // Logging configs (non-Spring Boot too)
+    "logback.xml": "logback-test.xml",
+    "log4j2.xml": "log4j2-test.xml",
+
+    // Docker / local env
+    "Dockerfile": "docker-compose.yml, docker-compose.yaml, .dockerignore",
+    "compose.yml": "compose.yaml, docker-compose.yml, docker-compose.yaml, .env",
+
+    // Project docs
+    "README.md": "CHANGELOG.md, LICENSE, CONTRIBUTING.md, SECURITY.md"
+  },
+
+  // ===== TABS & LAYOUT =====
+  "workbench.editor.showTabs": "multiple",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.labelFormat": "short",
+  "breadcrumbs.enabled": true,
+  "workbench.statusBar.visible": true,
+  "workbench.startupEditor": "none",
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.editor.focusRecentEditorAfterClose": true,
+  "workbench.editor.centeredLayoutAutoResize": true,
+
+  // ===== ZEN =====
+  "zenMode.fullScreen": false,
+  "zenMode.centerLayout": true,
+  "zenMode.hideStatusBar": false,
+
+  // ===== TERMINAL =====
+  "terminal.integrated.fontFamily": "JetBrains Mono",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.lineHeight": 1.1,
+  "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.smoothScrolling": true,
+
+  // ===== QUALITY OF LIFE =====
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.formatOnSave": false,
+  "editor.wordWrap": "off",
+
+  // ===== LANGUAGE SETTINGS =====
+  "[java]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  "[xml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[properties]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[jsonc]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
+  // ===== INLINE ERROR "GLOW" (Error Lens extension) =====
+  "errorLens.enabled": true,
+  "errorLens.fontWeight": "500",
+  "errorLens.statusBarIconEnabled": false,
+  "errorLens.margin": "80px",
+
+  // ===== IMPORTANT: enable semantic coloring (needed for fields vs locals) =====
+  "editor.semanticHighlighting.enabled": true,
+  "java.semanticHighlighting.enabled": true,
+
+  // ===== SEMANTIC TOKENS (Java) =====
+  // Goal: Make fields feel different from primitive types + locals.
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true,
+    "rules": {
+      // Types / structure
+      "type": "#9A8CC2",
+      "class": "#9A8CC2",
+      "interface": "#A39AD1",
+      "enum": "#A39AD1",
+
+      // Methods / calls
+      "method": "#7898BE",
+
+      // --- Key request: fields vs primitive types ---
+      "property": { "foreground": "#79AFAE" },
+      "property.readonly": { "foreground": "#7FB8B7" },
+
+      // Locals / params stay calmer so fields read “anchored”
+      "variable": { "foreground": "#9AA6B2" },
+      "parameter": { "foreground": "#8F9BA9" },
+
+      // Java annotations / enums
+      "enumMember": "#B5966B",
+      "annotation": "#B5966B",
+
+      // Literals
+      "stringLiteral": "#B4986F",
+      "numberLiteral": "#AE826B"
+    }
+  },
+
+  // ===== TOKEN PALETTE (TextMate) =====
+  // Adds extra punch where semantic tokens don't cover (esp. primitive types).
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      // ----- PRIMITIVE TYPES -----
+      {
+        "scope": ["storage.type.primitive.java", "storage.type.primitive", "support.type.primitive"],
+        "settings": { "foreground": "#A39AD1" }
+      },
+
+      // Fallback: fields/members if a tokenizer misses semantic property tokens
+      {
+        "scope": ["variable.other.field.java", "variable.other.member.java", "variable.other.property.java"],
+        "settings": { "foreground": "#79AFAE" }
+      },
+
+      // Keywords — muted teal
+      {
+        "scope": ["keyword", "storage.type", "storage.modifier"],
+        "settings": { "foreground": "#5B9C9E" }
+      },
+
+      // Control flow — slightly cooler teal
+      {
+        "scope": ["keyword.control", "keyword.control.flow", "keyword.control.conditional"],
+        "settings": { "foreground": "#6193A8" }
+      },
+
+      // Types / classes — muted violet
+      {
+        "scope": ["entity.name.type", "entity.name.type.class", "support.class", "support.type"],
+        "settings": { "foreground": "#9A8CC2" }
+      },
+
+      // Interfaces / aliases — soft lavender
+      {
+        "scope": ["entity.name.type.interface", "entity.name.type.alias"],
+        "settings": { "foreground": "#A39AD1" }
+      },
+
+      // Annotations — soft amber, italic (metadata layer)
+      {
+        "scope": ["meta.annotation", "storage.type.annotation", "punctuation.definition.annotation"],
+        "settings": { "foreground": "#B5966B", "fontStyle": "italic" }
+      },
+
+      // Methods — calm steel-blue
+      {
+        "scope": ["entity.name.function", "support.function", "meta.function-call"],
+        "settings": { "foreground": "#7898BE" }
+      },
+
+      // Variables — cool gray (low noise)
+      {
+        "scope": ["variable", "entity.name.variable", "variable.other.readwrite"],
+        "settings": { "foreground": "#9AA6B2" }
+      },
+
+      // Constants — muted magenta-lavender (thresholds / indicator params)
+      {
+        "scope": ["variable.other.constant", "constant.other", "constant.character"],
+        "settings": { "foreground": "#A08FB4" }
+      },
+
+      // Strings — desaturated gold
+      {
+        "scope": ["string", "string.quoted", "string.quoted.double", "string.quoted.single"],
+        "settings": { "foreground": "#B4986F" }
+      },
+
+      // Numbers — muted copper (prices / indicators / volumes)
+      {
+        "scope": ["constant.numeric"],
+        "settings": { "foreground": "#AE826B" }
+      },
+
+      // Boolean/null — same copper family
+      {
+        "scope": ["constant.language.boolean", "constant.language.null", "constant.language.undefined"],
+        "settings": { "foreground": "#AE826B" }
+      },
+
+      // Fields/properties/keys — subdued aqua
+      {
+        "scope": ["variable.other.property", "support.type.property-name", "meta.object-literal.key"],
+        "settings": { "foreground": "#6C9B9B" }
+      },
+
+      // Imports / packages — low-sat cyan
+      {
+        "scope": ["keyword.control.import", "keyword.control.from", "entity.name.namespace"],
+        "settings": { "foreground": "#74A1B0" }
+      },
+
+      // Operators — subtle
+      {
+        "scope": ["keyword.operator"],
+        "settings": { "foreground": "#8FA4B2" }
+      },
+
+      // Punctuation — keep quiet
+      {
+        "scope": ["punctuation"],
+        "settings": { "foreground": "#9BA6B2" }
+      },
+
+      // Comments — readable slate
+      {
+        "scope": ["comment", "punctuation.definition.comment"],
+        "settings": { "foreground": "#6C7688", "fontStyle": "italic" }
+      }
+    ]
+  },
+
+  // ===== CYBER-FIN UI (LOW CONTRAST, "NIGHT TRADING TERMINAL") =====
+  "workbench.colorCustomizations": {
+    "[Darcula]": {
+      // Surfaces
+      "editor.background": "#0A0F18",
+      "sideBar.background": "#080C14",
+      "activityBar.background": "#070A10",
+      "statusBar.background": "#070A10",
+      "titleBar.activeBackground": "#070A10",
+      "titleBar.inactiveBackground": "#070A10",
+      "panel.background": "#080C14",
+      "terminal.background": "#080C14",
+
+      // Text (soft white)
+      "foreground": "#C7CFD8",
+      "descriptionForeground": "#8B95A7",
+      "sideBar.foreground": "#A3ACBA",
+      "activityBar.foreground": "#B7C0CD",
+      "statusBar.foreground": "#B7C0CD",
+
+      // Accent (muted teal)
+      "activityBarBadge.background": "#2A766E",
+      "activityBarBadge.foreground": "#0A0F18",
+      "focusBorder": "#203047",
+
+      // Tabs
+      "tab.activeBackground": "#0A0F18",
+      "tab.inactiveBackground": "#080C14",
+      "tab.activeForeground": "#C7CFD8",
+      "tab.inactiveForeground": "#8B95A7",
+      "tab.activeBorderTop": "#2A766E",
+      "tab.unfocusedActiveBorderTop": "#22314A",
+
+      // Editor cues
+      "editor.lineHighlightBackground": "#121827",
+      "editor.selectionBackground": "#142A33",
+      "editorCursor.foreground": "#43908E",
+      "editorLineNumber.foreground": "#586174",
+      "editorLineNumber.activeForeground": "#AAB4C2",
+
+      // Guides
+      "editorIndentGuide.background1": "#151C2A",
+      "editorIndentGuide.activeBackground1": "#27324A",
+      "editorBracketPairGuide.activeBackground1": "#27324A",
+      "editorBracketPairGuide.background1": "#151C2A",
+
+      // Lists / explorer selection
+      "list.activeSelectionBackground": "#101B2A",
+      "list.inactiveSelectionBackground": "#0E1623",
+      "list.hoverBackground": "#0E1623",
+      "list.activeSelectionForeground": "#C7CFD8",
+      "list.inactiveSelectionForeground": "#B7C0CD",
+
+      // Inputs
+      "input.background": "#0B1220",
+      "dropdown.background": "#0B1220",
+      "input.foreground": "#C7CFD8",
+
+      // Git / diff: muted profit/loss
+      "editorGutter.addedBackground": "#2C6B5B",
+      "editorGutter.modifiedBackground": "#2A5A74",
+      "editorGutter.deletedBackground": "#6B3646",
+
+      // Debugging (muted)
+      "statusBar.debuggingBackground": "#2A766E",
+      "statusBar.debuggingForeground": "#0A0F18",
+
+      // --- Thin cyberpunk borders (glass panel feel) ---
+      "sideBar.border": "#141C2A",
+      "panel.border": "#141C2A",
+      "editorGroup.border": "#141C2A",
+      "activityBar.border": "#141C2A",
+      "statusBar.border": "#141C2A",
+
+      // --- Splitter hover “glow” (very subtle) ---
+      "sash.hoverBorder": "#2A766E",
+
+      // --- Scrollbar = subtle teal tint (no bright contrast) ---
+      "scrollbarSlider.background": "#2A766E22",
+      "scrollbarSlider.hoverBackground": "#2A766E33",
+      "scrollbarSlider.activeBackground": "#2A766E44",
+
+      // --- Focus outline for lists (Explorer selection feels “systemy”) ---
+      "list.focusOutline": "#2A766E55"
+    }
+  }
+}
